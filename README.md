@@ -1,12 +1,17 @@
-# ml_classification_beaderstadt
-# Alissa’s Applied Machine Learning Project Template
-> My personalized version of the applied-ml-template  where I build, test, and document machine learning projects from start to finish.
+# Beaderstadt Midterm Project: Classification Analysis
+> My personalized Submission: GitHub Repository with Jupyter Notebook and Peer Review.
 
 ## About
-This repo serves as my go to starting point for applied machine learning projects. It helps me keep everything clean, organized, and professional, from environment setup to documentation and testing.
+Organizations frequently need to classify data to support decision-making. For example, a healthcare provider may want to predict whether a patient has a specific condition based on lab results, or a business may classify customer behavior to tailor marketing strategies. Machine learning classification models help automate these decisions by recognizing patterns in historical data.
 
-If you’re following along or checking out my work, this repo follows the same core structure and workflows outlined in the pro-analytics-02
- guide, but with my own touch.
+This project demonstrates your ability to apply classification modeling techniques to a real-world dataset. You will:
+
+Load and explore a dataset.
+Analyze feature distributions and consider feature selection.
+Train and evaluate a classification model.
+Compare different classification approaches.
+Document your work in a structured Jupyter Notebook.
+Conduct a peer review of a classmate’s project.
 
  ## Project Overview
 
