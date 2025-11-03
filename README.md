@@ -1,52 +1,10 @@
 # Beaderstadt Midterm Project: Classification Analysis
 > My personalized Submission: GitHub Repository with Jupyter Notebook and Peer Review.
 
-## About
-Organizations frequently need to classify data to support decision-making. For example, a healthcare provider may want to predict whether a patient has a specific condition based on lab results, or a business may classify customer behavior to tailor marketing strategies. Machine learning classification models help automate these decisions by recognizing patterns in historical data.
+## Project Overview
+Perform a classification analysis on a real-world dataset using Python and Scikit-Learn, and document everything in a structured Jupyter Notebook with reflections after each section.
 
-This project demonstrates your ability to apply classification modeling techniques to a real-world dataset. You will:
 
-Load and explore a dataset.
-Analyze feature distributions and consider feature selection.
-Train and evaluate a classification model.
-Compare different classification approaches.
-Document your work in a structured Jupyter Notebook.
-Conduct a peer review of a classmate’s project.
-
- ## Project Overview
-
-> Use this repo to start a professional Python project.
-
-- Additional instructions: See the [pro-analytics-02](https://denisecase.github.io/pro-analytics-02/) guide.
-- Project organization: [STRUCTURE](./STRUCTURE.md)
-- Build professional skills:
-  - **Environment Management**: Every project in isolation
-  - **Code Quality**: Automated checks for fewer bugs
-  - **Documentation**: Use modern project documentation tools
-  - **Testing**: Prove your code works
-  - **Version Control**: Collaborate professionally
-
----
-
-## About this Repository
-
-Starter files for the example labs:
-
-- notebooks/example01 folder
-- notebooks/example02 folder
-
-## Folders for Projects
-
-Each project will be completed in its own folder.
-
-- notebooks/project01 folder:
-  - ml01.ipynb 
-  - ml01.py - working script with just the code
-  - README.md - instructions - presents my project 1
-- notebooks/project02 folder:
-  - ml02_beaderstadt.ipynb 
-  - README.md - instructions - presents my project 2
----
 
 ## WORKFLOW 1. Set Up Machine
 
