@@ -4,6 +4,8 @@
 ## Project Overview
 Perform a classification analysis on a real-world dataset using Python and Scikit-Learn, and document everything in a structured Jupyter Notebook with reflections after each section.
 
+a clickable link to your notebook file.
+a clickable link to your your peer review Markdown file.
 
 
 ## WORKFLOW 1. Set Up Machine
@@ -97,43 +99,7 @@ For fully reproducible results, or when you need to use the local `.venv`, use `
 
 </details>
 
-### 3.3 Build Project Documentation
-
-Make sure you have current doc dependencies, then build your docs, fix any errors, and serve them locally to test.
-
-```shell
-uv run mkdocs build --strict
-uv run mkdocs serve
-```
-
-- After running the serve command, the local URL of the docs will be provided. To open the site, press **CTRL and click** the provided link (at the same time) to view the documentation. On a Mac, use **CMD and click**.
-- Press **CTRL c** (at the same time) to stop the hosting process.
-
-### 3.4 Execute
-
-This project includes demo code.
-Run the demo Python modules to confirm everything is working.
-
-In VS Code terminal, run:
-
-```shell
-uv run python notebooks/project01/ml01.py
-```
-
-A new window with charts should appear. Close the window to finish the execution. 
-If this works, your project is ready! If not, check:
-
-- Are you in the right folder? (All terminal commands are to be run from the root project folder.)
-- Did you run the full `uv sync --extra dev --extra docs --upgrade` command?
-- Are there any error messages? (ask for help with the exact error)
-
-## Update this README as you work
-
-Add commands to run additional scripts as you work through the course (update the path and file name as needed).
-
----
-
-### 3.5 Git add-commit-push to GitHub
+### 3.4 Git add-commit-push to GitHub
 
 Anytime we make working changes to code is a good time to git add-commit-push to GitHub.
 
@@ -146,8 +112,6 @@ git add .
 git commit -m "describe your change in quotes"
 git push -u origin main
 ```
-
-This will trigger the GitHub Actions workflow and publish your documentation via GitHub Pages.
 
 ### 3.6 Modify and Debug
 
