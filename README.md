@@ -4,8 +4,8 @@
 ## Project Overview
 In this project, I explore the UCI Mushroom dataset to predict whether a mushroom is edible or poisonous using machine learning. I train and evaluate Decision Tree and Random Forest classifiers, examining which features have the most influence on predictions. The goal is to compare model performance, interpret their decision-making, and uncover patterns in the data that help distinguish edible from poisonous mushrooms.
 
-[My notebook file.](https://github.com/abeaderstadt/ml_classification_beaderstadt/blob/main/classification_beaderstadt.ipynb)
-[My peer review Markdown file.](https://github.com/abeaderstadt/ml_classification_beaderstadt/blob/main/peer_review.md)
+[Click here for my notebook file.](https://github.com/abeaderstadt/ml_classification_beaderstadt/blob/main/classification_beaderstadt.ipynb)<br>
+[Click here for my peer review file.](https://github.com/abeaderstadt/ml_classification_beaderstadt/blob/main/peer_review.md)<br>
 
 ---
 
@@ -26,7 +26,7 @@ In this project, I explore the UCI Mushroom dataset to predict whether a mushroo
 ## 2. Data Exploration and Preparation
 
 ### 2.1 Handle Missing Values
-- Rather than dropping rows for missing `stalk-root` values, I’ll keep these as a separate `"missing"` category to preserve potential information.
+- Rather than dropping rows for missing `stalk-root` values, I created a separate `"missing"` category to preserve potential information.
 - Drop uninformative `veil-type` column. 
 
 ### 2.2 Feature Engineering
@@ -108,7 +108,7 @@ In this project, I explore the UCI Mushroom dataset to predict whether a mushroo
 
 5. **View Results**  
    Classification reports, confusion matrices, decision trees, and random forest display inline.  
-   Use these outputs to analyze (edible vs. poisonous) patterns and model performance.
+   Use these outputs to analyze edibility patterns and model performance.
 
 ---
 
