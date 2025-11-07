@@ -2,11 +2,117 @@
 > My personalized Submission: GitHub Repository with Jupyter Notebook and Peer Review.
 
 ## Project Overview
-Perform a classification analysis on a real-world dataset using Python and Scikit-Learn, and document everything in a structured Jupyter Notebook with reflections after each section.
+In this project, I explore the UCI Mushroom dataset to predict whether a mushroom is edible or poisonous using machine learning. I train and evaluate Decision Tree and Random Forest classifiers, examining which features have the most influence on predictions. The goal is to compare model performance, interpret their decision-making, and uncover patterns in the data that help distinguish edible from poisonous mushrooms.
 
-a clickable link to your notebook file.
-a clickable link to your your peer review Markdown file.
+[My notebook file.](https://github.com/abeaderstadt/ml_classification_beaderstadt/blob/main/classification_beaderstadt.ipynb)
+[My peer review Markdown file.](https://github.com/abeaderstadt/ml_classification_beaderstadt/blob/main/peer_review.md)
 
+---
+
+## Key Steps in This Project
+
+## 1. Import and Inspect the Data
+- Loaded the Mushroom dataset from UCI.
+- Inspected the dataset using `.info()`, `.head()`, `.describe()`, and `.isnull().sum()`.
+- Explored feature types and distributions.
+
+  - **Insights:**
+    - 8,124 instances and 23 features.
+    - All features are categorical, requiring encoding for modeling.
+    - The target variable is class (edible or poisonous).
+
+---
+
+## 2. Data Exploration and Preparation
+
+### 2.1 Handle Missing Values
+- Rather than dropping rows for missing `stalk-root` values, I’ll keep these as a separate `"missing"` category to preserve potential information.
+- Drop uninformative `veil-type` column. 
+
+### 2.2 Feature Engineering
+- Encoded all categorical variables as numeric using one-hot encoding.
+- Created `cap-color-group` to combine cap colors into "light" and "dark". 
+
+  - **Rationale:**
+    - “light” and “dark” tones may capture general visual patterns that might relate to edibility.
+    - Numeric encoding enables machine learning models to process these features.
+
+---
+
+## 3. Feature Selection and Target Definition
+- Input features explored for modeling:  
+  - Key categorical features: `odor`, `gill-color`, `cap-shape`, `bruises`, `spore-print-color`, and the new feature `cap-color-group`
+
+- Target variable: `class` (edible vs. poisonous).
+
+**Reasoning:**  
+- Using different feature combinations lets us compare performance and see which factors are most predictive.
+
+---
+
+## 4. Data Splitting and Stratification
+- Split the data into training and test sets using train_test_split.
+- Preserved the class balance for reliable evaluation.
+  
+---
+
+## 5. Model Training and Evaluation
+
+### 5.1 Decision Tree Classifier
+- Trained on full feature set.
+- Evaluated using classification reports and confusion matrices.
+- Visualized decision tree to interpret feature importance.
+
+### 5.2 Random Forest Classifier
+- Trained with multiple trees to reduce overfitting.
+- Evaluated performance on test data.
+- Analyzed feature importance across all trees.
+
+**Reflection:**
+- Both the Decision Tree and Random Forest performed nearly perfectly, with almost identical accuracy, precision, recall, and F1-scores.
+- Decision Trees are interpretable; Random Forests often improve accuracy.
+- Visualizations help understand how features contribute to predictions.
+  
+---
+
+## 6. Final Thoughts & Insights
+
+### Top features and model performance
+| Model         | Top Features     | Train Accuracy | Test Accuracy | Precision (poisonous) | Recall (poisonous) | F1-score (poisonous) |
+| ------------- | ---------------- | -------------- | ------------- | --------------------- | ------------------ | -------------------- |
+| Decision Tree | odor, spore-print-color | 1.00           | 0.99          | 1.00                  | 0.99               | 1.00                 |
+| Random Forest | odor, spore-print-color | 1.00           | 0.99          | 1.00                  | 0.99               | 0.99                 |
+
+
+- `Odor` and `spore-print-color` were the two most predictive features.
+- The new feature `cap-color-group` was not as powerful of a predictor as other single features.
+- A single Decision Tree did an excellent job on this dataset. However, the Random Forest adds extra stability by averaging across many trees, which helps with generalization and reduces the tiny risk of overfitting.
+- Future work: Create additional engineered features from existing ones (like combining odor and cap color) to see if they add any predictive value.
+
+---
+
+## How to Run
+
+1. **Open the Project Notebook**  
+   Navigate to and open the Jupyter notebook:  
+   `classification_beaderstadt.ipynb`
+
+2. **Select the Correct Kernel**  
+   Ensure the notebook uses the correct Python environment where required libraries are installed.
+
+3. **Clear Kernel / Outputs (Optional)**  
+   Use Kernel -> Restart & Clear Outputs to start fresh and avoid stale variables or plots.
+
+4. **Run the Notebook**  
+   Execute cells sequentially to load data, prepare features, train models, and visualize results.
+
+5. **View Results**  
+   Classification reports, confusion matrices, decision trees, and random forest display inline.  
+   Use these outputs to analyze (edible vs. poisonous) patterns and model performance.
+
+---
+
+## Setup Instructions
 
 ## WORKFLOW 1. Set Up Machine
 
@@ -39,19 +145,11 @@ uv run python --version
 ```shell
 .\.venv\Scripts\activate
 ```
-
-**macOS / Linux / WSL:**
-
-```shell
-source .venv/bin/activate
-```
-
 ---
 
 ## WORKFLOW 3. Daily Workflow
 
-Please ensure that the prior steps have been verified before continuing.
-When working on a project, we open just that project in VS Code.
+Once the environment is ready, follow these steps when working on the project.
 
 ### 3.1 Git Pull from GitHub
 
@@ -101,7 +199,7 @@ For fully reproducible results, or when you need to use the local `.venv`, use `
 
 ### 3.4 Git add-commit-push to GitHub
 
-Anytime we make working changes to code is a good time to git add-commit-push to GitHub.
+After making changes:
 
 1. Stage your changes with git add.
 2. Commit your changes with a useful message in quotes.
@@ -115,8 +213,10 @@ git push -u origin main
 
 ### 3.6 Modify and Debug
 
-With a working version safe in GitHub, start making changes to the code.
+Start new sessions with `git pull` to sync changes.
 
-Before starting a new session, remember to do a `git pull` and keep your tools updated.
+Update dependencies regularly to prevent conflicts.
 
-Each time forward progress is made, remember to git add-commit-push.
+Make incremental changes, testing as you go, and commit often.
+
+---
