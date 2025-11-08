@@ -1,4 +1,4 @@
-# Peer Review: Beth's Project 
+# Peer Review: Beth Spornitz's Project 
 [Notebook reviewed](https://github.com/BethSpornitz/ml-bethspornitz/blob/main/notebooks/midterm/classification_bethspornitz.ipynb) 
 
 ## 1. Clarity & Organization (Is the notebook structured and easy to follow?)
