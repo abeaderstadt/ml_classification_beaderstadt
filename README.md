@@ -85,8 +85,9 @@ In this project, I explore the UCI Mushroom dataset to predict whether a mushroo
 
 
 - `Odor` and `spore-print-color` were the two most predictive features.
-- The new feature `cap-color-group` was not as powerful of a predictor as other single features.
+- The new feature `cap-color-group` was not as powerful of a predictor as other single features.This suggests that grouping color shades together actually reduced predictive precision, since subtle distinctions between specific cap colors carry more signal than broad color groupings. 
 - A single Decision Tree did an excellent job on this dataset. However, the Random Forest adds extra stability by averaging across many trees, which helps with generalization and reduces the tiny risk of overfitting.
+
 - Future work: Create additional engineered features from existing ones (like combining odor and cap color) to see if they add any predictive value.
 
 ---
