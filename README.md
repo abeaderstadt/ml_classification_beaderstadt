@@ -4,8 +4,8 @@
 ## Project Overview
 In this project, I explore the UCI Mushroom dataset to predict whether a mushroom is edible or poisonous using machine learning. I train and evaluate Decision Tree and Random Forest classifiers, examining which features have the most influence on predictions. The goal is to compare model performance, interpret their decision-making, and uncover patterns in the data that help distinguish edible from poisonous mushrooms.
 
-[Click here for my notebook file.](https://github.com/abeaderstadt/ml_classification_beaderstadt/blob/main/classification_beaderstadt.ipynb)<br>
-[Click here for my peer review file.](https://github.com/abeaderstadt/ml_classification_beaderstadt/blob/main/peer_review.md)<br>
+[Click here for my notebook file](https://github.com/abeaderstadt/ml_classification_beaderstadt/blob/main/classification_beaderstadt.ipynb)<br>
+[Click here for my peer review file](https://github.com/abeaderstadt/ml_classification_beaderstadt/blob/main/peer_review.md)<br>
 
 ---
 
@@ -26,10 +26,14 @@ In this project, I explore the UCI Mushroom dataset to predict whether a mushroo
 ## 2. Data Exploration and Preparation
 
 ### 2.1 Handle Missing Values
+- Since all features in this dataset are categorical, use countplots to explore feature distributions.
+- Examine the **target variable (`class`)** to check for any class imbalance
+
+### 2.2 Handle Missing Values
 - Rather than dropping rows for missing `stalk-root` values, I created a separate `"missing"` category to preserve potential information.
 - Drop uninformative `veil-type` column. 
 
-### 2.2 Feature Engineering
+### 2.3 Feature Engineering
 - Encoded all categorical variables as numeric using one-hot encoding.
 - Created `cap-color-group` to combine cap colors into "light" and "dark". 
 
@@ -40,33 +44,38 @@ In this project, I explore the UCI Mushroom dataset to predict whether a mushroo
 ---
 
 ## 3. Feature Selection and Target Definition
+
+### 3.1 Choose features and target
 - Input features explored for modeling:  
   - Key categorical features: `odor`, `gill-color`, `cap-shape`, `bruises`, `spore-print-color`, and the new feature `cap-color-group`
 
 - Target variable: `class` (edible vs. poisonous).
 
 **Reasoning:**  
-- Using different feature combinations lets us compare performance and see which factors are most predictive.
+- These features were selected because the countplots suggest they separate edible and poisonous mushrooms effectively.
 
+### 3.2 Define X and y
+- Assign input features to X
+- Assign target variable to y
 ---
 
-## 4. Data Splitting and Stratification
+## 4. Train a Model (Decision Tree)
+
+### 4.1 Train and Split the data
 - Split the data into training and test sets using train_test_split.
 - Preserved the class balance for reliable evaluation.
   
+### 4.3 Evalulate performance
+- Key metrics: Accuracy, Precision, Recall, F1-score, and the Confusion Matrix.
+
 ---
 
-## 5. Model Training and Evaluation
+## Section 5. Improve the Model or Try Alternates
 
-### 5.1 Decision Tree Classifier
-- Trained on full feature set.
-- Evaluated using classification reports and confusion matrices.
-- Visualized decision tree to interpret feature importance.
-
-### 5.2 Random Forest Classifier
+### 5.1 Train Random Forest
 - Trained with multiple trees to reduce overfitting.
 - Evaluated performance on test data.
-- Analyzed feature importance across all trees.
+- Visualized confusion matrix to determine model performance.
 
 **Reflection:**
 - Both the Decision Tree and Random Forest performed nearly perfectly, with almost identical accuracy, precision, recall, and F1-scores.
@@ -77,6 +86,9 @@ In this project, I explore the UCI Mushroom dataset to predict whether a mushroo
 
 ## 6. Final Thoughts & Insights
 
+![Feature Importance - Random Forest](feature_importance_rf.png)
+
+
 ### Top features and model performance
 | Model         | Top Features     | Train Accuracy | Test Accuracy | Precision (poisonous) | Recall (poisonous) | F1-score (poisonous) |
 | ------------- | ---------------- | -------------- | ------------- | --------------------- | ------------------ | -------------------- |
@@ -84,9 +96,11 @@ In this project, I explore the UCI Mushroom dataset to predict whether a mushroo
 | Random Forest | odor, spore-print-color | 1.00           | 0.99          | 1.00                  | 0.99               | 0.99                 |
 
 
-- `Odor` and `spore-print-color` were the two most predictive features.
-- The new feature `cap-color-group` was not as powerful of a predictor as other single features.This suggests that grouping color shades together actually reduced predictive precision, since subtle distinctions between specific cap colors carry more signal than broad color groupings. 
-- A single Decision Tree did an excellent job on this dataset. However, the Random Forest adds extra stability by averaging across many trees, which helps with generalization and reduces the tiny risk of overfitting.
+- `Odor` is the strongest predictor; certain values almost perfectly separate poisonous from edible.  
+- `Spore-print-color` and `bruising` were also strong predictors that reinforced model confidence.
+- Individual features like `odor` and `spore-print-color` were more influential than the engineered `cap-color-group` feature. This suggests that grouping color shades reduced predictive precision.  
+- Both **Decision Tree** and **Random Forest** achieved near-perfect accuracy (~99%), showing minimal overfitting.
+- Overall, the models confirmed that mushroom edibility can be predicted very reliably from these categorical features when properly encoded.
 
 - Future work: Create additional engineered features from existing ones (like combining odor and cap color) to see if they add any predictive value.
 
